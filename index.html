@@ -4,20 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PFC | Project Portfolio</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+  <meta name="description" content="Single-Phase Improved Power Quality Rectifier for EV Charging - EEE Mini Project">
+  <title>Single-Phase PFC Rectifier | Mini Project</title>
 
   <style>
     :root {
-      --bg: #090d18;
-      --card: #141d30;
-      --accent: #9875ff;
-      --cyan: #57d8d0;
-      --text: #f1f5f9;
-      --muted: #a4b1c7;
-      --border: rgba(255,255,255,.1);
+      --navy: #10233f;
+      --blue: #1c5d91;
+      --teal: #20a6a6;
+      --light: #f3f7fb;
+      --white: #ffffff;
+      --text: #263548;
+      --muted: #66758a;
+      --border: #dfe7ef;
     }
 
     * {
@@ -28,185 +27,264 @@
     }
 
     body {
-      font-family: Inter, Arial, sans-serif;
-      background: var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
+      background: var(--white);
       line-height: 1.7;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     .container {
-      width: min(1100px, 90%);
+      width: min(1120px, 90%);
       margin: auto;
     }
+
+    /* Navigation */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(9,13,24,.95);
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(15px);
     }
 
     nav {
-      min-height: 75px;
+      min-height: 72px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
     }
 
     .logo {
-      font-size: 28px;
       font-weight: 800;
+      color: var(--navy);
+      font-size: 20px;
+      letter-spacing: 1px;
     }
 
     .logo span {
-      color: var(--accent);
+      color: var(--teal);
     }
 
     .nav-links {
       display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
       list-style: none;
-      gap: 25px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
       font-size: 14px;
+      font-weight: 600;
     }
 
     .nav-links a:hover {
-      color: var(--cyan);
+      color: var(--teal);
     }
 
-    .menu {
-      display: none;
-      background: none;
-      color: white;
-      border: 1px solid var(--border);
-      padding: 8px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+    /* Hero */
 
     .hero {
-      min-height: 600px;
-      display: flex;
-      align-items: center;
+      color: white;
       background:
-        radial-gradient(ellipse at 80% 25%, #7652df30, transparent 45%),
-        radial-gradient(ellipse at 10% 90%, #57d8d020, transparent 40%);
+        radial-gradient(circle at 85% 20%, #287da0 0, transparent 32%),
+        linear-gradient(125deg, #10233f, #164c77 65%, #137c87);
+      padding: 95px 0 85px;
+      overflow: hidden;
     }
 
     .hero-content {
-      max-width: 780px;
-      padding: 90px 0;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 55px;
     }
 
     .eyebrow {
-      color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 6px 13px;
+      border-radius: 30px;
       font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 20px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(42px, 7vw, 82px);
-      line-height: 1.08;
-      letter-spacing: -2px;
-      margin-bottom: 25px;
-    }
-
-    .gradient {
-      background: linear-gradient(100deg, var(--accent), var(--cyan));
-      color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
+      font-size: clamp(34px, 4.6vw, 57px);
+      line-height: 1.16;
+      margin-bottom: 22px;
+      letter-spacing: -1px;
     }
 
     .hero p {
-      max-width: 650px;
-      color: var(--muted);
-      margin-bottom: 30px;
+      color: #e0edf7;
       font-size: 17px;
+      max-width: 640px;
+      margin-bottom: 28px;
     }
 
-    .btn {
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .tag {
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 7px 12px;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+
+    .button {
       display: inline-block;
       padding: 12px 22px;
-      background: var(--accent);
-      border-radius: 8px;
-      font-weight: 600;
-      margin: 4px 6px 4px 0;
+      background: var(--teal);
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.2s;
     }
 
-    .btn.secondary {
-      background: transparent;
-      border: 1px solid var(--border);
+    .button:hover {
+      background: #168b91;
+      transform: translateY(-2px);
     }
+
+    /* Hero diagram */
+
+    .hero-diagram {
+      padding: 28px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 14px;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero-diagram h3 {
+      font-size: 17px;
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .flow-box {
+      flex: 1 1 90px;
+      min-height: 88px;
+      padding: 12px 7px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .flow-box strong {
+      font-size: 23px;
+      margin-bottom: 5px;
+    }
+
+    .arrow {
+      color: #7fe4df;
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .diagram-note {
+      color: #d5e7f3;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    /* Common sections */
 
     section {
-      padding: 85px 0;
-      scroll-margin-top: 75px;
+      padding: 78px 0;
+      scroll-margin-top: 70px;
     }
 
     .section-heading {
       max-width: 720px;
-      margin-bottom: 38px;
+      margin: 0 auto 42px;
+      text-align: center;
     }
 
-    .section-heading h2 {
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.2;
-      margin-bottom: 16px;
+    .section-heading .small-title {
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 800;
     }
 
-    .section-heading p,
-    .muted {
+    h2 {
+      color: var(--navy);
+      font-size: clamp(27px, 3vw, 36px);
+      line-height: 1.3;
+      margin: 10px 0 14px;
+    }
+
+    .section-heading p {
       color: var(--muted);
     }
 
-    .grid {
+    .light-section {
+      background: var(--light);
+    }
+
+    .grid-3 {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
 
     .card {
-      background: linear-gradient(145deg, var(--card), #0e1422);
+      padding: 27px;
+      background: white;
       border: 1px solid var(--border);
-      padding: 30px;
-      border-radius: 16px;
-      transition: transform .2s, border-color .2s;
+      border-radius: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      border-color: #9875ff90;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(16,35,63,0.08);
     }
 
-    .icon {
+    .card-icon {
       width: 48px;
       height: 48px;
       display: grid;
       place-items: center;
-      background: #9875ff22;
-      color: var(--cyan);
-      border-radius: 12px;
-      font-size: 24px;
-      margin-bottom: 18px;
+      background: #e4f5f5;
+      color: var(--blue);
+      border-radius: 10px;
+      font-size: 23px;
+      margin-bottom: 17px;
     }
 
     .card h3 {
-      font-size: 21px;
-      margin-bottom: 12px;
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-size: 19px;
     }
 
     .card p {
@@ -214,447 +292,801 @@
       font-size: 14px;
     }
 
-    .theme-section {
-      background: #0d1321;
-      border-block: 1px solid var(--border);
+    /* Problem statement */
+
+    .problem-box {
+      background: white;
+      border-left: 5px solid var(--teal);
+      border-radius: 5px;
+      padding: 30px 34px;
+      box-shadow: 0 5px 20px rgba(16,35,63,0.05);
+      font-size: 18px;
     }
 
-    .theme-layout {
+    .objectives {
+      margin-top: 28px;
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 40px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .objective {
+      padding: 17px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .check {
+      color: var(--teal);
+      font-weight: bold;
+      font-size: 19px;
+    }
+
+    /* Engineering artefact */
+
+    .system-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .system-panel {
+      padding: 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .system-panel h3 {
+      color: var(--navy);
+      margin-bottom: 22px;
+    }
+
+    .system-step {
+      display: flex;
       align-items: center;
+      gap: 15px;
+      padding: 13px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #fbfdff;
     }
 
-    .theme-layout h2 {
-      font-size: clamp(30px, 4vw, 45px);
-      line-height: 1.2;
-      margin-bottom: 20px;
+    .step-number {
+      min-width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: var(--blue);
+      border-radius: 7px;
+      font-weight: bold;
     }
 
-    .theme-layout p {
+    .system-step strong {
+      display: block;
+      color: var(--navy);
+    }
+
+    .system-step small {
       color: var(--muted);
-      margin-bottom: 16px;
     }
 
-    .features {
-      list-style: none;
-      margin-top: 20px;
+    .control-flow {
+      padding: 15px;
+      text-align: center;
+      background: #e8f7f6;
+      border: 1px solid #c8e9e7;
+      border-radius: 7px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: var(--navy);
     }
 
-    .features li {
-      padding: 10px 0;
+    .down-arrow {
+      text-align: center;
+      color: var(--teal);
+      font-size: 23px;
+      line-height: 1.4;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 14px;
+      background: #fff8e8;
+      border-left: 4px solid #e3a83d;
+      color: #6c5524;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    /* Parameters table */
+
+    .table-wrap {
+      overflow-x: auto;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+    }
+
+    th, td {
+      padding: 16px 20px;
+      text-align: left;
       border-bottom: 1px solid var(--border);
     }
 
-    .features li::before {
-      content: "✦";
-      color: var(--cyan);
-      margin-right: 12px;
+    th {
+      background: var(--navy);
+      color: white;
+      font-size: 14px;
     }
 
-    .visual {
-      min-height: 320px;
+    td {
+      font-size: 14px;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f7fafd;
+    }
+
+    /* Methodology */
+
+    .method-card {
+      position: relative;
+      padding-top: 55px;
+    }
+
+    .method-number {
+      position: absolute;
+      top: 18px;
+      left: 27px;
+      color: var(--teal);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .measures {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .measure {
+      text-align: center;
+      padding: 20px 12px;
       border: 1px solid var(--border);
-      background:
-        radial-gradient(circle, #9875ff30, transparent 60%),
-        var(--card);
-      border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 30px;
+      border-radius: 8px;
+      background: white;
     }
 
-    .visual .symbol {
-      font-size: 75px;
-      margin-bottom: 15px;
+    .measure strong {
+      display: block;
+      color: var(--blue);
+      font-size: 16px;
+      margin-bottom: 6px;
     }
 
-    .visual p {
-      margin-top: 12px;
-    }
-
-    .artefact {
-      min-height: 220px;
-      margin-top: 25px;
-      padding: 25px;
-      border: 1px dashed #9875ff90;
-      border-radius: 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 12px;
+    .measure span {
       color: var(--muted);
+      font-size: 12px;
     }
 
-    .artefact img {
-      max-width: 100%;
-      max-height: 350px;
-      object-fit: contain;
-      border-radius: 10px;
-    }
+    /* Team */
 
     .team-card {
       text-align: center;
     }
 
     .avatar {
-      width: 75px;
-      height: 75px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
+      width: 76px;
+      height: 76px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, var(--accent), #287e98);
-      font-weight: 800;
-      font-size: 23px;
+      margin: 0 auto 17px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
     }
 
-    .role {
-      display: inline-block;
-      margin-top: 12px;
-      color: var(--cyan);
-      background: #57d8d015;
-      border-radius: 30px;
-      padding: 4px 12px;
-      font-size: 12px;
+    .team-card .role {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 8px;
     }
 
-    .cta {
+    .institution {
+      margin-top: 28px;
+      padding: 25px;
       text-align: center;
-      background: radial-gradient(ellipse, #6048a526, transparent 65%);
+      background: var(--navy);
+      color: white;
+      border-radius: 10px;
     }
 
-    .cta h2 {
-      font-size: clamp(30px, 4vw, 46px);
-      margin-bottom: 15px;
+    .institution p {
+      color: #d4e3f1;
+      font-size: 14px;
     }
 
-    .cta p {
-      color: var(--muted);
-      margin-bottom: 25px;
-    }
+    /* Footer */
 
     footer {
-      border-top: 1px solid var(--border);
-      padding: 25px 0;
-      color: var(--muted);
+      padding: 28px 0;
+      background: #0b1a2d;
+      color: #d4e3f1;
+      text-align: center;
       font-size: 13px;
     }
 
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
+    footer strong {
+      color: white;
     }
 
-    @media(max-width: 760px) {
-      .menu {
-        display: block;
-      }
+    /* Responsive design */
 
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        background: var(--card);
-        padding: 22px 5%;
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .grid,
-      .theme-layout {
+    @media (max-width: 850px) {
+      .hero-content,
+      .system-layout {
         grid-template-columns: 1fr;
       }
 
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .measures {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .hero {
-        min-height: 520px;
+        padding: 70px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px 17px;
+      }
+
+      .grid-3,
+      .objectives,
+      .measures {
+        grid-template-columns: 1fr;
       }
 
       section {
-        padding: 65px 0;
+        padding: 55px 0;
       }
 
-      h1 {
-        letter-spacing: -1px;
+      .hero-diagram {
+        padding: 18px;
+      }
+
+      .problem-box {
+        padding: 22px;
+        font-size: 16px;
       }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- NAVIGATION -->
   <header>
     <nav class="container">
-      <a href="#home" class="logo">PFC<span>.</span></a>
+      <a href="#home" class="logo">PFC<span>.</span> PROJECT</a>
 
-      <button class="menu" id="menu" aria-label="Toggle navigation"
-              aria-expanded="false">☰</button>
-
-      <ul class="nav-links" id="navLinks">
+      <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#overview">Overview</a></li>
-        <li><a href="#theme">Theme</a></li>
-        <li><a href="#artefact">Artefact</a></li>
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#artefact">Design</a></li>
+        <li><a href="#methodology">Methodology</a></li>
         <li><a href="#team">Team</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-content">
-          <div class="eyebrow">
-            KLE Technological University · PFC Project
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+
+      <div>
+        <span class="eyebrow">Electrical and Electronics Engineering</span>
+
+        <h1>
+          Single-Phase Improved Power Quality Rectifier for EV Charging
+        </h1>
+
+        <p>
+          Design and simulation of a single-phase boost Power Factor
+          Correction (PFC) rectifier to improve input power quality and
+          obtain a regulated DC output for electric vehicle charging
+          applications.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Power Electronics</span>
+          <span class="tag">Boost PFC</span>
+          <span class="tag">PLECS Simulation</span>
+        </div>
+
+        <a class="button" href="#overview">Explore Project &darr;</a>
+      </div>
+
+      <div class="hero-diagram">
+        <h3>Project at a Glance</h3>
+
+        <div class="flow">
+          <div class="flow-box">
+            <strong>∿</strong>
+            AC Input
           </div>
 
-          <!-- Replace with your actual project title -->
-          <h1>Engineering Ideas.<br>
-            <span class="gradient">Creating Impact.</span>
-          </h1>
+          <span class="arrow">&rarr;</span>
 
-          <p>
-            Welcome to our project portfolio. Discover our project theme,
-            engineering artefact, objectives, proposed solution, and the
-            team working to turn an idea into reality.
-          </p>
+          <div class="flow-box">
+            <strong>◇</strong>
+            Bridge
+            Rectifier
+          </div>
 
-          <a class="btn" href="#overview">Explore Project ↓</a>
-          <a class="btn secondary" href="#team">Meet the Team</a>
-        </div>
-      </div>
-    </section>
+          <span class="arrow">&rarr;</span>
 
-    <section id="overview">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">01 / Overview</div>
-          <h2>From concept to <span class="gradient">solution.</span></h2>
-          <p>
-            Explore the key components of our project, our motivation,
-            and the engineering approach behind our work.
-          </p>
+          <div class="flow-box">
+            <strong>⚡</strong>
+            Boost PFC
+          </div>
+
+          <span class="arrow">&rarr;</span>
+
+          <div class="flow-box">
+            <strong>⎓</strong>
+            DC Output
+          </div>
         </div>
 
-        <div class="grid">
-          <article class="card">
-            <div class="icon">✦</div>
-            <h3>Project Theme</h3>
-            <p>
-              Introduce your project's main theme, the problem being
-              addressed, and its relevance to real-world needs.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="icon">⚙</div>
-            <h3>Engineering Artefact</h3>
-            <p>
-              Describe your proposed product, model, prototype, or system
-              and how it addresses the problem.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="icon">◎</div>
-            <h3>Objectives</h3>
-            <p>
-              Explain the project goals, intended users, design
-              requirements, and expected outcomes.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="icon">♧</div>
-            <h3>Team Collaboration</h3>
-            <p>
-              Introduce your team members and explain their contributions
-              to the project.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="theme-section" id="theme">
-      <div class="container theme-layout">
-        <div>
-          <div class="eyebrow">02 / Project theme</div>
-          <h2>Understanding problems.<br>
-            <span class="gradient">Building solutions.</span>
-          </h2>
-
-          <!-- Replace these sample paragraphs with your PFC theme -->
-          <p>
-            Our project focuses on identifying an important problem and
-            exploring an engineering-based approach to address it.
-          </p>
-
-          <p>
-            Through research, design, and evaluation, we aim to develop
-            a practical solution that considers user needs and technical
-            requirements.
-          </p>
-
-          <ul class="features">
-            <li>Problem identification and analysis</li>
-            <li>Research and idea development</li>
-            <li>Engineering design and implementation</li>
-            <li>Evaluation and future improvements</li>
-          </ul>
-        </div>
-
-        <div class="visual">
-          <div class="symbol">✧</div>
-          <h3>Our Vision</h3>
-          <p>
-            Insert your actual project theme, vision, and problem
-            statement here.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="artefact">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">03 / Engineering artefact</div>
-          <h2>Design. Develop. <span class="gradient">Demonstrate.</span></h2>
-          <p>
-            Present the artefact developed or proposed by your team
-            and explain its purpose and working principle.
-          </p>
-        </div>
-
-        <div class="grid">
-          <article class="card">
-            <div class="icon">01</div>
-            <h3>Problem Statement</h3>
-            <p>
-              Describe the specific problem, its impact, and why an
-              engineering solution is needed.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="icon">02</div>
-            <h3>Proposed Solution</h3>
-            <p>
-              Explain the artefact's major components, functionality,
-              and advantages over existing approaches.
-            </p>
-          </article>
-        </div>
-
-        <div class="artefact">
-          <!-- Add an image in the repository and replace the comment below -->
-          <!-- Example: <img src="artefact.jpg" alt="Project artefact"> -->
-
-          <div style="font-size:45px">▧</div>
-          <h3>Project Artefact</h3>
-          <p>
-            Add your actual prototype photograph, CAD design,
-            circuit diagram, or system illustration here.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="theme-section" id="team">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">04 / Our team</div>
-          <h2>Meet the <span class="gradient">team.</span></h2>
-          <p>
-            The people, ideas, and collaboration behind this project.
-          </p>
-        </div>
-
-        <div class="grid">
-          <article class="card team-card">
-            <div class="avatar">M1</div>
-            <h3>Team Member 1</h3>
-            <p class="muted">Add name and USN</p>
-            <span class="role">Project Coordinator</span>
-          </article>
-
-          <article class="card team-card">
-            <div class="avatar">M2</div>
-            <h3>Team Member 2</h3>
-            <p class="muted">Add name and USN</p>
-            <span class="role">Research & Design</span>
-          </article>
-
-          <article class="card team-card">
-            <div class="avatar">M3</div>
-            <h3>Team Member 3</h3>
-            <p class="muted">Add name and USN</p>
-            <span class="role">Development</span>
-          </article>
-
-          <article class="card team-card">
-            <div class="avatar">M4</div>
-            <h3>Team Member 4</h3>
-            <p class="muted">Add name and USN</p>
-            <span class="role">Documentation</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <div class="eyebrow">Thank you for visiting</div>
-        <h2>Ideas into <span class="gradient">engineering.</span></h2>
-        <p>
-          A project built on curiosity, collaboration, and the pursuit
-          of practical solutions.
+        <p class="diagram-note">
+          AC-to-DC conversion with a boost power factor correction stage
         </p>
-        <a href="#home" class="btn">Back to Top ↑</a>
       </div>
-    </section>
-  </main>
 
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="small-title">01 / Project Overview</span>
+        <h2>About the Project</h2>
+        <p>
+          The project studies a conventional rectifier and an improved
+          rectifier using a boost PFC stage for EV charging applications.
+        </p>
+      </div>
+
+      <div class="grid-3">
+
+        <article class="card">
+          <div class="card-icon">↻</div>
+          <h3>AC–DC Conversion</h3>
+          <p>
+            A single-phase bridge rectifier converts the AC input into
+            pulsating DC, which is supplied to the boost converter stage.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Boost PFC Stage</h3>
+          <p>
+            The boost converter is controlled to regulate the DC output
+            and shape the input current to improve the input power factor.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">▥</div>
+          <h3>Power Quality</h3>
+          <p>
+            The simulated system can be evaluated using power factor,
+            input-current distortion, output-voltage ripple and transient
+            response.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM STATEMENT -->
+  <section class="light-section" id="problem">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="small-title">02 / Problem and Objectives</span>
+        <h2>Problem Statement</h2>
+      </div>
+
+      <div class="problem-box">
+        Conventional rectifiers used in EV chargers can cause poor power
+        factor, input-current distortion and fluctuations in the DC output
+        voltage. Therefore, this project aims to design and simulate a
+        single-phase boost Power Factor Correction (PFC) rectifier to
+        improve input power quality and maintain a stable DC output voltage.
+      </div>
+
+      <div class="section-heading" style="margin-top: 45px; margin-bottom: 25px;">
+        <h2>Project Objectives</h2>
+      </div>
+
+      <div class="objectives">
+        <div class="objective">
+          <span class="check">✓</span>
+          <span>Develop a single-phase bridge rectifier with a boost PFC stage.</span>
+        </div>
+
+        <div class="objective">
+          <span class="check">✓</span>
+          <span>Simulate the circuit and observe its electrical behaviour using PLECS.</span>
+        </div>
+
+        <div class="objective">
+          <span class="check">✓</span>
+          <span>Implement suitable feedback control for DC output-voltage regulation.</span>
+        </div>
+
+        <div class="objective">
+          <span class="check">✓</span>
+          <span>Compare the conventional rectifier and PFC rectifier using relevant performance measures.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ENGINEERING ARTEFACT / DESIGN -->
+  <section id="artefact">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="small-title">03 / Engineering Artefact</span>
+        <h2>System Design</h2>
+        <p>
+          The proposed system consists of a rectifier, a boost converter,
+          a DC output stage and a feedback control system.
+        </p>
+      </div>
+
+      <div class="system-layout">
+
+        <div class="system-panel">
+          <h3>Power Circuit</h3>
+
+          <div class="system-step">
+            <span class="step-number">1</span>
+            <div>
+              <strong>AC Input Source</strong>
+              <small>Supplies the single-phase AC input.</small>
+            </div>
+          </div>
+
+          <div class="down-arrow">&darr;</div>
+
+          <div class="system-step">
+            <span class="step-number">2</span>
+            <div>
+              <strong>Bridge Rectifier (D1–D4)</strong>
+              <small>Converts AC into pulsating DC.</small>
+            </div>
+          </div>
+
+          <div class="down-arrow">&darr;</div>
+
+          <div class="system-step">
+            <span class="step-number">3</span>
+            <div>
+              <strong>Boost Converter</strong>
+              <small>Uses an inductor, switching device and boost diode.</small>
+            </div>
+          </div>
+
+          <div class="down-arrow">&darr;</div>
+
+          <div class="system-step">
+            <span class="step-number">4</span>
+            <div>
+              <strong>DC Output and Load</strong>
+              <small>Capacitor smooths the output voltage supplied to the load.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="system-panel">
+          <h3>Feedback Control Concept</h3>
+
+          <div class="control-flow">Output Voltage Measurement</div>
+          <div class="down-arrow">&darr;</div>
+          <div class="control-flow">Compare with Reference Voltage</div>
+          <div class="down-arrow">&darr;</div>
+          <div class="control-flow">PI Controller</div>
+          <div class="down-arrow">&darr;</div>
+          <div class="control-flow">PWM Signal Generation</div>
+          <div class="down-arrow">&darr;</div>
+          <div class="control-flow">Switch Control</div>
+
+          <div class="note">
+            This is a simplified voltage-regulation control flow. A complete
+            average-current-mode PFC controller also requires an input-current
+            reference and an inner current-control loop.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-heading" style="margin-top: 60px; margin-bottom: 25px;">
+        <h2>Simulation Parameters</h2>
+        <p>
+          Initial values used in the current PLECS simulation model.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Symbol</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>AC Input Voltage</td>
+              <td>Vin</td>
+              <td>5 V RMS</td>
+            </tr>
+
+            <tr>
+              <td>Output Voltage Reference</td>
+              <td>Vref</td>
+              <td>24 V</td>
+            </tr>
+
+            <tr>
+              <td>Boost Inductance</td>
+              <td>L</td>
+              <td>27 µH</td>
+            </tr>
+
+            <tr>
+              <td>Output Capacitance</td>
+              <td>C</td>
+              <td>22,000 µF</td>
+            </tr>
+
+            <tr>
+              <td>Load Resistance</td>
+              <td>R</td>
+              <td>27 Ω</td>
+            </tr>
+
+            <tr>
+              <td>Switching Frequency</td>
+              <td>fs</td>
+              <td>100 kHz</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note">
+        Note: These are scaled simulation parameters, not final hardware
+        ratings for a mains-connected EV charger. Component ratings and
+        circuit operation must be verified before hardware implementation.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="light-section" id="methodology">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="small-title">04 / Project Workflow</span>
+        <h2>Methodology</h2>
+        <p>
+          The project follows a step-by-step process from literature study
+          to simulation and performance evaluation.
+        </p>
+      </div>
+
+      <div class="grid-3">
+
+        <article class="card method-card">
+          <span class="method-number">01</span>
+          <h3>Literature Review</h3>
+          <p>
+            Study existing single-phase rectifier and boost PFC topologies,
+            their operation and their performance in EV charging systems.
+          </p>
+        </article>
+
+        <article class="card method-card">
+          <span class="method-number">02</span>
+          <h3>Circuit Modelling</h3>
+          <p>
+            Develop the bridge rectifier and boost converter model in PLECS
+            using suitable initial component values.
+          </p>
+        </article>
+
+        <article class="card method-card">
+          <span class="method-number">03</span>
+          <h3>Controller Design</h3>
+          <p>
+            Configure the feedback controller and PWM switching signals
+            to regulate the output voltage.
+          </p>
+        </article>
+
+        <article class="card method-card">
+          <span class="method-number">04</span>
+          <h3>Simulation</h3>
+          <p>
+            Run the circuit under selected operating conditions and record
+            the input current, output voltage and other relevant waveforms.
+          </p>
+        </article>
+
+        <article class="card method-card">
+          <span class="method-number">05</span>
+          <h3>Performance Evaluation</h3>
+          <p>
+            Evaluate the simulated results using power factor, input-current
+            THD, output ripple and transient response where measurable.
+          </p>
+        </article>
+
+        <article class="card method-card">
+          <span class="method-number">06</span>
+          <h3>Documentation</h3>
+          <p>
+            Compare the results, document the limitations and prepare the
+            final project report and presentation.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="section-heading" style="margin-top: 55px; margin-bottom: 20px;">
+        <h2>Performance Measures</h2>
+        <p>Parameters planned for evaluation during simulation.</p>
+      </div>
+
+      <div class="measures">
+        <div class="measure">
+          <strong>Power Factor</strong>
+          <span>Input power utilisation</span>
+        </div>
+
+        <div class="measure">
+          <strong>Current THD</strong>
+          <span>Input-current distortion</span>
+        </div>
+
+        <div class="measure">
+          <strong>Voltage Ripple</strong>
+          <span>Variation in DC output</span>
+        </div>
+
+        <div class="measure">
+          <strong>Transient Response</strong>
+          <span>Response to operating changes</span>
+        </div>
+      </div>
+
+      <p class="note">
+        Results should be filled in after the corresponding PLECS measurements
+        are completed. No numerical improvement in power factor, THD or
+        efficiency is claimed here.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- TEAM DETAILS -->
+  <section id="team">
+    <div class="container">
+
+      <div class="section-heading">
+        <span class="small-title">05 / Project Information</span>
+        <h2>Team Details</h2>
+        <p>
+          Replace the sample fields below with your actual team and guide
+          information before publishing the portfolio.
+        </p>
+      </div>
+
+      <div class="grid-3">
+
+        <article class="card team-card">
+          <div class="avatar">01</div>
+          <h3>[Team Member 1]</h3>
+          <p class="role">Team Member</p>
+          <p>USN: [Enter USN]</p>
+        </article>
+
+        <article class="card team-card">
+          <div class="avatar">02</div>
+          <h3>[Team Member 2]</h3>
+          <p class="role">Team Member</p>
+          <p>USN: [Enter USN]</p>
+        </article>
+
+        <article class="card team-card">
+          <div class="avatar">03</div>
+          <h3>[Team Member 3]</h3>
+          <p class="role">Team Member</p>
+          <p>USN: [Enter USN]</p>
+        </article>
+
+      </div>
+
+      <div class="institution">
+        <h3>KLE Technological University</h3>
+        <p>Department of Electrical and Electronics Engineering</p>
+        <p>Hubballi, Karnataka, India</p>
+        <p style="margin-top: 12px;">
+          Project Guide: [Enter Guide Name and Designation]
+        </p>
+        <p>Academic Year: [Enter Academic Year]</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="container footer-content">
-      <span>© <span id="year"></span> PFC Project Portfolio</span>
-      <span>KLE Technological University</span>
+    <div class="container">
+      <p>
+        <strong>Single-Phase Improved Power Quality Rectifier for EV Charging</strong>
+      </p>
+      <p>Electrical and Electronics Engineering | KLE Technological University</p>
+      <p style="margin-top: 8px;">Mini Project Portfolio</p>
     </div>
   </footer>
 
-  <script>
-    const menu = document.getElementById("menu");
-    const navLinks = document.getElementById("navLinks");
-
-    menu.addEventListener("click", function () {
-      const open = navLinks.classList.toggle("open");
-      menu.setAttribute("aria-expanded", String(open));
-      menu.textContent = open ? "✕" : "☰";
-    });
-
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("open");
-        menu.setAttribute("aria-expanded", "false");
-        menu.textContent = "☰";
-      });
-    });
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
 </body>
 </html>
